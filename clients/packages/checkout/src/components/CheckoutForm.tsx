@@ -48,6 +48,7 @@ import AmountLabel from './AmountLabel'
 import CustomFieldInput from './CustomFieldInput'
 import MeteredPriceLabel from './MeteredPriceLabel'
 import PolarLogo from './PolarLogo'
+import SolanaCheckoutForm from './SolanaCheckoutForm'
 
 const DetailRow = ({
   title,
@@ -1051,6 +1052,11 @@ const CheckoutForm = (props: CheckoutFormProps) => {
   if (paymentProcessor === 'stripe') {
     return <StripeCheckoutForm {...props} />
   }
+
+  if (paymentProcessor === 'solana') {
+    return <SolanaCheckoutForm {...props} />
+  }
+
   return <DummyCheckoutForm {...props} />
 }
 

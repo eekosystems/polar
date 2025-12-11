@@ -6,6 +6,7 @@ import CheckoutProductSwitcher from './CheckoutProductSwitcher'
 import { CheckoutPWYWForm } from './CheckoutPWYWForm'
 import CheckoutSeatSelector from './CheckoutSeatSelector'
 import MeteredPricesDisplay from './MeteredPricesDisplay'
+import SolanaCheckoutForm from './SolanaCheckoutForm'
 
 export {
   CheckoutForm,
@@ -14,4 +15,5 @@ export {
   CheckoutPWYWForm,
   CheckoutSeatSelector,
   MeteredPricesDisplay,
+  SolanaCheckoutForm,
 }
