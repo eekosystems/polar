@@ -11,16 +11,19 @@ class Platforms(StrEnum):
 
 class PaymentProcessor(StrEnum):
     stripe = "stripe"
+    solana = "solana"
 
 
 class AccountType(StrEnum):
     stripe = "stripe"
+    solana = "solana"
     manual = "manual"
     open_collective = "open_collective"
 
     def get_display_name(self) -> str:
         return {
             AccountType.stripe: "Stripe Connect Express",
+            AccountType.solana: "Solana Wallet",
             AccountType.open_collective: "Open Collective",
             AccountType.manual: "Manual",
         }[self]

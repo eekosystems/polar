@@ -30,6 +30,7 @@ from polar.integrations.github_repository_benefit.endpoints import (
 )
 from polar.integrations.google.endpoints import router as google_router
 from polar.integrations.plain.endpoints import router as plain_router
+from polar.integrations.solana.endpoints import router as solana_router
 from polar.integrations.stripe.endpoints import router as stripe_router
 from polar.license_key.endpoints import router as license_key_router
 from polar.login_code.endpoints import router as login_code_router
@@ -65,6 +66,8 @@ router.include_router(github_router)
 router.include_router(github_repository_benefit_router)
 # /integrations/stripe
 router.include_router(stripe_router)
+# /integrations/solana
+router.include_router(solana_router)
 # /integrations/discord
 router.include_router(discord_router)
 # /integrations/apple

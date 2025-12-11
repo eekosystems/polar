@@ -54,6 +54,9 @@ class Account(RecordModel):
     open_collective_slug: Mapped[str | None] = mapped_column(
         String(255), nullable=True, default=None
     )
+    solana_wallet: Mapped[str | None] = mapped_column(
+        String(44), nullable=True, default=None
+    )
 
     email: Mapped[str | None] = mapped_column(String(254), nullable=True, default=None)
 
@@ -140,12 +143,15 @@ class Account(RecordModel):
         return self.status == Account.Status.UNDER_REVIEW
 
     def is_payout_ready(self) -> bool:
-        return self.is_active() and (
-            # For Stripe accounts, check if payouts are enabled.
-            # Normally, the account shouldn't be active if payouts are not enabled
-            # but let's be extra cautious
-            self.account_type != AccountType.stripe or self.is_payouts_enabled
-        )
+        if not self.is_active():
+            return False
+
+        if self.account_type == AccountType.stripe:
+            return self.is_payouts_enabled
+        elif self.account_type == AccountType.solana:
+            return self.solana_wallet is not None
+        else:
+            return True
 
     def get_associations_names(self) -> list[str]:
         associations_names: list[str] = []

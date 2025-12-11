@@ -343,8 +343,19 @@ class Settings(BaseSettings):
         # USD, default
         "usd": _DEFAULT_ACCOUNT_PAYOUT_MINIMUM_BALANCE,
     }
-    PLATFORM_FEE_BASIS_POINTS: int = 400
-    PLATFORM_FEE_FIXED: int = 40
+    # Platform fees: 1% with no fixed fee for crypto payments
+    PLATFORM_FEE_BASIS_POINTS: int = 100  # 1%
+    PLATFORM_FEE_FIXED: int = 0  # No fixed fee
+
+    # Solana Configuration
+    SOLANA_RPC_URL: str = "https://api.mainnet-beta.solana.com"
+    SOLANA_DEVNET_RPC_URL: str = "https://api.devnet.solana.com"
+    SOLANA_USE_DEVNET: bool = True  # Use devnet for development
+    SOLANA_MERCHANT_WALLET: str = ""  # Platform's receiving wallet
+    SOLANA_USDC_MINT: str = "EPjFWdd5AufqSSqeM2qN1xzybapC8G4wEGGkZwyTDt1v"  # Mainnet USDC
+    SOLANA_USDC_DEVNET_MINT: str = "4zMMC9srt5Ri5X14GAgXhaHii3GnPAEERYPJgZJDncDU"  # Devnet USDC
+    SOLANA_PAYMENT_TIMEOUT_SECONDS: int = 1800  # 30 minutes to complete payment
+    SOLANA_CONFIRMATION_POLL_INTERVAL_SECONDS: int = 5  # Poll every 5 seconds
 
     ORGANIZATION_SLUG_RESERVED_KEYWORDS: list[str] = [
         # Landing pages

@@ -172,6 +172,10 @@ class CheckoutCreateBase(
     to the resulting order and/or subscription.
     """
 
+    payment_processor: PaymentProcessor = Field(
+        default=PaymentProcessor.stripe,
+        description="Payment processor to use. Options: 'stripe' (card payments) or 'solana' (crypto/USDC).",
+    )
     discount_id: UUID4 | None = Field(
         default=None, description="ID of the discount to apply to the checkout."
     )
