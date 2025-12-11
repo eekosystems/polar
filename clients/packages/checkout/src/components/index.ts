@@ -7,6 +7,12 @@ import { CheckoutPWYWForm } from './CheckoutPWYWForm'
 import CheckoutSeatSelector from './CheckoutSeatSelector'
 import MeteredPricesDisplay from './MeteredPricesDisplay'
 import SolanaCheckoutForm from './SolanaCheckoutForm'
+import {
+  SolanaWalletProvider,
+  useWallet,
+  WalletButton,
+  WalletMultiButton,
+} from './SolanaWalletProvider'
 
 export {
   CheckoutForm,
@@ -16,4 +22,8 @@ export {
   CheckoutSeatSelector,
   MeteredPricesDisplay,
   SolanaCheckoutForm,
+  SolanaWalletProvider,
+  useWallet,
+  WalletButton,
+  WalletMultiButton,
 }
